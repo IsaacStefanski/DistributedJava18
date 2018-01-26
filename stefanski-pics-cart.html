@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Stefanski Pics | Cart</title>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="cookies.js"></script>
+<script src="stefpicsjs.js"></script>
+<link rel="stylesheet" type="text/css" href="stefpicscss.css">
+<link href="https://fonts.googleapis.com/css?family=Raleway|Roboto+Slab" rel="stylesheet">
+<link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+	<!--HEADER-->
+	<header>
+		<table>
+			<tr>
+				<td>&nbsp;</td>
+				<td><a href="stefanski-pics-home.html"><img src="images/logo.png" style="width:100%; height:70px;"></a></td>
+				<td><a href="stefanski-pics-home.html"><h2>Stefanski Pics Photography</h2></a></td>
+			</tr>
+		</table>
+	</header>
+	
+	<!--NAVIGATION-->
+	<div id="navigation">
+		<a class="nav" href="stefanski-pics-home.html" style="padding-left:20px; padding-right:20px;"><i class="fa fa-home" aria-hidden="true"></i> Home</a></td>
+		<a class="nav" href="stefanski-pics-photos.html" style="padding-left:20px; padding-right:20px;"><i class="fa fa-camera" aria-hidden="true"></i> Photos</a></td>
+		<a class="nav" id="viewcartbtn" href="stefanski-pics-cart.html" style="padding-left:20px; padding-right:20px;"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Cart</a></td>
+	</div>
+	
+	<!--CONTENT-->
+	<div id="container">
+		<div id="orderdiv">
+		<h2>Your Cart</h2>
+		<div id="cartcont"></div>
+		<table id="cartItems">
+			<tr id="cartHeader">
+				<td>Photo & Description</td>
+				<td>Preview</td>
+				<td>Size</td>
+				<td>Frame Options</td>
+				<td>Quanity</td>
+			</tr>
+		</table>
+		<br><br>
+		<form name="shippingForm" id="shippingForm">
+  			<fieldset name="shippingFieldset" id="shippingFieldset">
+    			<legend name="shippingLegend" id="shippingLegend">Shipping and Payment Info:</legend>
+    				<label>Name: <input type="text" name="name" id="name"></label><br>
+    				<label>Email: <input type="text" name="email" id="email"></label><br>
+					<label>Street Address: <input type="text" name="address" id="address"></label><br>
+					<label>City: <input type="text" name="city" id="city"></label><br>
+					<label>State: <input type="text" name="state" id="state"></label><br>
+					<label>Zip: <input type="text" name="zip" id="zip"></label><br>
+					<hr>
+					<label>Credit Card Number: <input type="text" name="card" id="card"></label><br>
+					<label>Card Expiration Date: <input type="text" name="cardexp" id="cardexp"></label><br>
+					<label>CVV (Security Code): <input type="text" name="cvv" id="cvv"></label><br>
+  			</fieldset>
+		</form>
+		<br><br>
+		<button id="checkoutBtn"><i class="fa fa-check-circle" aria-hidden="true"></i> Continue to Checkout</button>
+		</div>
+	</div>
+	
+	<!--FOOTER-->
+	<footer>
+		<p>&copy; 2017  |  Isaac Stefanski  |  Stefanski Pics Photography</p>
+		<img src="images/logo.png" style="width:auto; height:30px;">
+	</footer>
+</body>
+</html>
