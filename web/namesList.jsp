@@ -4,6 +4,8 @@
     Author     : Isaac
 --%>
 
+<%@page import="java.util.List"%>
+<%@page import="edu.wctc.dj.week3.model.Name"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -12,6 +14,18 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello <%=request.getAttribute("name")%>!</h1>
+        <table>
+            <%
+                List<Name> nameList = (List<Name>)request.getAttribute("nameList");
+                for (Name name : nameList){
+            %>
+            <tr>
+                <td><%=name.getFirst()%></td>
+                <td><a href="?id=<%=name.getId()%>"><%=name.getLast()%></a></td>
+            </tr>
+            <%
+                }
+            %>
+        </table>
     </body>
 </html>

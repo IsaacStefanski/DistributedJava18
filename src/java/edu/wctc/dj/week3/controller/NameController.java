@@ -1,7 +1,10 @@
 package edu.wctc.dj.week3.controller;
 
+import edu.wctc.dj.week3.model.Name;
+import edu.wctc.dj.week3.model.NameService;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -33,8 +36,27 @@ public class NameController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
+        NameService nameService = new NameService();
         RequestDispatcher dispatcher = request.getRequestDispatcher("/namesList.jsp");
-        request.setAttribute("name", "Fred");
+        
+        String id = request.getParameter("id");
+        String search = request.getParameter("search");
+        
+        if (id != null){
+            Name name = nameService.getName(id);
+            request.setAttribute("name", name);
+            dispatcher = request.getRequestDispatcher("/nameDetail.jsp");
+        } else if (search != null){
+            List<Name> nameList = nameService.findNames(search);
+            request.setAttribute("nameList", nameList);
+            dispatcher = request.getRequestDispatcher("/namesList.jsp");
+        } else {
+            List<Name> nameList = nameService.getAllNames();
+            request.setAttribute("nameList", nameList);
+            dispatcher = request.getRequestDispatcher("/namesList.jsp");
+        }
+        
         dispatcher.forward(request, response);
     }
 
