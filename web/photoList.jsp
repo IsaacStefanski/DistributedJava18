@@ -20,7 +20,7 @@
                 for (Photo p : photoList){
             %>
             <tr>
-                <td><img src="images/<%=p.getFile()%>" style="width:auto; height:70px;"></td>
+                <td><img src="images/<%=p.getFile()%>" style="width:200px; height:auto;"></td>
                 <td><a href="?id=<%=p.getId()%>"><%=p.getName()%></a></td>
             </tr>
             <%

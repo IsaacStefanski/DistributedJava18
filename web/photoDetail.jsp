@@ -4,6 +4,7 @@
     Author     : Isaac
 --%>
 
+<%@page import="model.Photo"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -12,6 +13,9 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Photo Detail</h1>
+        <%Photo photo = (Photo)request.getAttribute("photo");%>
+        
+        <h1><%=photo.getName()%></h1>
+        <img src="images/<%=photo.getFile()%>" style="width:500px; height:auto;">
     </body>
 </html>
