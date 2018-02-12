@@ -72,7 +72,7 @@ public class PhotoController extends HttpServlet {
             request.setAttribute("photo", photo);
             dispatcher = request.getRequestDispatcher("/photoDetail.jsp");
         } else if (search != null){
-            List<Photo> photoList = photoService.findNames(search);
+            List<Photo> photoList = photoService.findPhotos(search);
             request.setAttribute("photoList", photoList);
             dispatcher = request.getRequestDispatcher("/photoList.jsp");
         } else {

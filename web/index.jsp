@@ -23,8 +23,8 @@
 		<table>
 			<tr>
                             <td>&nbsp;</td>
-                            <td><a href="stefanski-pics-home.html"><img src="images/logo.png" style="width:auto; height:70px;"></a></td>
-                            <td><a href="stefanski-pics-home.html"><h2>Stefanski Pics Photography</h2></a></td>
+                            <td><a href="index.jsp"><img src="images/logo.png" style="width:auto; height:70px;"></a></td>
+                            <td><a href="index.jsp"><h2>Stefanski Pics Photography</h2></a></td>
                             <td>&nbsp;</td>
                             <td>
                                 <!--SEARCH FORM-->
@@ -39,9 +39,9 @@
 	
 	<!--NAVIGATION-->
 	<div id="navigation">
-		<a class="nav" href="stefanski-pics-home.html" style="padding-left:20px; padding-right:20px;"><i class="fa fa-home" aria-hidden="true"></i> Home</a></td>
-		<a class="nav" href="stefanski-pics-photos.html" style="padding-left:20px; padding-right:20px;"><i class="fa fa-camera" aria-hidden="true"></i> Photos</a></td>
-		<a class="nav" href="stefanski-pics-cart.html" style="padding-left:20px; padding-right:20px;"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Cart</a></td>
+		<a class="nav" href="index.jsp" style="padding-left:20px; padding-right:20px;"><i class="fa fa-home" aria-hidden="true"></i> Home</a></td>
+		<a class="nav" href="#" style="padding-left:20px; padding-right:20px;"><i class="fa fa-camera" aria-hidden="true"></i> Photos</a></td>
+		<a class="nav" href="#" style="padding-left:20px; padding-right:20px;"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Cart</a></td>
 	</div>
 	
 	<!--CONTENT-->
