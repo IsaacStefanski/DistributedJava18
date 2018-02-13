@@ -1,16 +1,18 @@
 <%-- 
-    Document   : photoDetail
-    Created on : Feb 11, 2018, 5:00:27 PM
+    Document   : gallery
+    Created on : Feb 12, 2018, 6:25:16 PM
     Author     : Isaac
 --%>
 
+<%@page import="java.util.List"%>
 <%@page import="model.Photo"%>
+<%@page import="model.PhotoService"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Stefanski Pics | Details</title>
+        <title>Stefanski Pics | Gallery</title>
         <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
         <script src="cookies.js"></script>
         <script src="stefpicsjs.js"></script>
@@ -45,14 +47,22 @@
 		<a class="nav" href="#" style="padding-left:20px; padding-right:20px;"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Cart</a></td>
 	</div>
 
-        <!--PHOTO DETAILS-->
-        <%Photo photo = (Photo)request.getAttribute("photo");%>
-        
-        <h1><%=photo.getName()%></h1>
-        <a href="images/<%=photo.getFile()%>">
-            <img src="images/<%=photo.getFile()%>" style="width:500px; height:auto;">
-        </a>
-        <br>
-        <p><%=photo.getDescription()%></p>
+        <!--PHOTO LIST-->
+        <table>
+            <%
+                PhotoService photoService = new PhotoService();
+                List<Photo> photoList = photoService.getAllPhotos();
+                for (Photo p : photoList){
+            %>
+            <div class="galleryItem">
+                <a target="_blank" href="/PicsApp/PhotoController?id=<%=p.getId()%>">
+                    <img src="images/<%=p.getFile()%>" alt="<%=p.getName()%>" width="700" height="auto">
+                </a>
+                <div class="desc"><%=p.getName()%></div>
+            </div>
+            <%
+                }
+            %>
+        </table>
     </body>
 </html>

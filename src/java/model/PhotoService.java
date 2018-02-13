@@ -82,7 +82,46 @@ public class PhotoService {
                 "White Audi R8 at the 2017 Milwaukee Auto Show", "autoshows/white-r8.jpg"),
         
         new Photo("23", "Yellow Lamborghini Aventador",
-                "Yellow Lamborghini Aventador at 2017 Chicago Auto Show", "autoshows/yellow-aventador.jpg")
+                "Yellow Lamborghini Aventador at 2017 Chicago Auto Show", "autoshows/yellow-aventador.jpg"),
+        
+        new Photo("24", "Aston Martin Emblem",
+                "Aston Martin emblem", "cars/aston-martin-emblem.jpg"),
+        
+        new Photo("25", "Aston Martin Wheel",
+                "Close-up of an Aston Martin wheel", "cars/aston-martin-wheel.jpg"),
+        
+        new Photo("26", "Ferrari 458",
+                "A red Ferrari 458 drives through Greenfield", "cars/ferrari-458.jpg"),
+        
+        new Photo("27", "Opel GT (Rear)",
+                "Rear view of a red 1973 Opel GT at the Volo Auto Museum", "cars/opel-gt-rear.jpg"),
+        
+        new Photo("28", "1973 Opel GT",
+                "Red 1973 Opel GT at the Volo Auto Museum", "cars/opel-gt.jpg"),
+        
+        new Photo("29", "Porsche in Motion",
+                "Black Porsche 911 driving by", "cars/porsche-motion-1.jpg"),
+        
+        new Photo("30", "Porsche in Motion",
+                "Black Porsche 911 driving by", "cars/porsche-motion-2.jpg"),
+        
+        new Photo("31", "Mercedes SLS AMG",
+                "Silver Mercedes SLS AMG supercar owns the freeway", "cars/sls-amg.jpg"),
+        
+        new Photo("32", "Maserati Ghibli",
+                "White Maserati Ghibli on a cloudy day in the Windy City", "cars/white-ghibli-filter.jpg"),
+        
+        new Photo("33", "Colorful Fungus",
+                "A log growing some vibrant fungus in a Black River Falls forest", "outdoors/colorful-fungus.jpg"),
+        
+        new Photo("34", "Fall Railroad",
+                "Looking down the Milwaukee County Zoo railroad tracks in the middle of fall", "outdoors/fall-railroad.jpg"),
+        
+        new Photo("35", "In the Forest",
+                "A view of the trees in a Black River Falls forest", "outdoors/forest.jpg"),
+        
+        new Photo("36", "Leaves",
+                "Red-orange leaves on the deck", "outdoors/leaves-deck.jpg")
     );
     
     public Photo getPhoto(String id){
