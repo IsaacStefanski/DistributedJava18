@@ -1,16 +1,15 @@
 <%-- 
-    Document   : photoDetail
-    Created on : Feb 11, 2018, 5:00:27 PM
+    Document   : viewCart
+    Created on : Feb 12, 2018, 7:23:05 PM
     Author     : Isaac
 --%>
 
-<%@page import="model.Photo"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Stefanski Pics | Details</title>
+        <title>Stefanski Pics | Home</title>
         <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
         <script src="cookies.js"></script>
         <script src="stefpicsjs.js"></script>
@@ -44,15 +43,7 @@
 		<a class="nav" href="gallery.jsp" style="padding-left:20px; padding-right:20px;"><i class="fa fa-camera" aria-hidden="true"></i> Photos</a></td>
 		<a class="nav" href="viewCart.jsp" style="padding-left:20px; padding-right:20px;"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Cart</a></td>
 	</div>
-
-        <!--PHOTO DETAILS-->
-        <%Photo photo = (Photo)request.getAttribute("photo");%>
         
-        <h1><%=photo.getName()%></h1>
-        <a href="images/<%=photo.getFile()%>">
-            <img src="images/<%=photo.getFile()%>" style="width:500px; height:auto;">
-        </a>
-        <br>
-        <p><%=photo.getDescription()%></p>
+        <h1>Cart</h1>
     </body>
 </html>
