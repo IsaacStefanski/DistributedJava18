@@ -38,7 +38,7 @@ public class NameController extends HttpServlet {
             throws ServletException, IOException {
         
         NameService nameService = new NameService();
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/namesList.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/namesList.jsp");
         
         String id = request.getParameter("id");
         String search = request.getParameter("search");
@@ -46,15 +46,15 @@ public class NameController extends HttpServlet {
         if (id != null){
             Name name = nameService.getName(id);
             request.setAttribute("name", name);
-            dispatcher = request.getRequestDispatcher("/nameDetail.jsp");
+            dispatcher = request.getRequestDispatcher("/WEB-INF/nameDetail.jsp");
         } else if (search != null){
             List<Name> nameList = nameService.findNames(search);
             request.setAttribute("nameList", nameList);
-            dispatcher = request.getRequestDispatcher("/namesList.jsp");
+            dispatcher = request.getRequestDispatcher("/WEB-INF/namesList.jsp");
         } else {
             List<Name> nameList = nameService.getAllNames();
             request.setAttribute("nameList", nameList);
-            dispatcher = request.getRequestDispatcher("/namesList.jsp");
+            dispatcher = request.getRequestDispatcher("/WEB-INF/namesList.jsp");
         }
         
         dispatcher.forward(request, response);
