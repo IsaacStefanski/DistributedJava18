@@ -11,8 +11,8 @@ import java.util.List;
 public class NameService {
     
     private List<Name> nameList = Arrays.asList(
-        new Name("1", "Fred", "Jones"),
-        new Name("2", "Joe", "Smith")
+        new Name("1", "Fred", "Jones", new Address("123 Main Street", "Waukesha", "WI", "53186")),
+        new Name("2", "Joe", "Smith", new Address("456 1st Street", "Milwaukee", "WI", "53172"))
     );
     
     public Name getName(String id){
