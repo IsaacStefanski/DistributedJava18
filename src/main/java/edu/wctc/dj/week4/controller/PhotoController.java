@@ -39,7 +39,7 @@ public class PhotoController extends HttpServlet {
             throws ServletException, IOException {
         
         PhotoService photoService = new PhotoService();
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/photoList.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/photoList.jsp");
         
         String id = request.getParameter("id");
         String search = request.getParameter("search");
@@ -47,15 +47,15 @@ public class PhotoController extends HttpServlet {
         if (id != null){
             Photo photo = photoService.getPhoto(id);
             request.setAttribute("photo", photo);
-            dispatcher = request.getRequestDispatcher("/photoDetail.jsp");
+            dispatcher = request.getRequestDispatcher("/WEB-INF/photoDetail.jsp");
         } else if (search != null){
             List<Photo> photoList = photoService.findPhotos(search);
             request.setAttribute("photoList", photoList);
-            dispatcher = request.getRequestDispatcher("/photoList.jsp");
+            dispatcher = request.getRequestDispatcher("/WEB-INF/photoList.jsp");
         } else {
             List<Photo> photoList = photoService.getAllPhotos();
             request.setAttribute("photoList", photoList);
-            dispatcher = request.getRequestDispatcher("/photoList.jsp");
+            dispatcher = request.getRequestDispatcher("/WEB-INF/photoList.jsp");
         }
         
         dispatcher.forward(request, response);
