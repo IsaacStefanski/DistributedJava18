@@ -5,8 +5,8 @@
 --%>
 
 <%@page import="java.util.List"%>
-<%@page import="model.Photo"%>
-<%@page import="model.PhotoService"%>
+<%@page import="edu.wctc.dj.week4.model.Photo"%>
+<%@page import="edu.wctc.dj.week4.model.PhotoService"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>

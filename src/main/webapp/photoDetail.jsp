@@ -4,8 +4,8 @@
     Author     : Isaac
 --%>
 
-<%@page import="model.Photo"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -46,13 +46,11 @@
 	</div>
 
         <!--PHOTO DETAILS-->
-        <%Photo photo = (Photo)request.getAttribute("photo");%>
-        
-        <h1><%=photo.getName()%></h1>
-        <a href="images/<%=photo.getFile()%>">
-            <img src="images/<%=photo.getFile()%>" style="width:500px; height:auto;">
+        <h1><c:out value="${photo.name}"/></h1>        
+        <a href="images/<c:out value="${photo.file}"/>">
+            <img src="images/<c:out value="${photo.file}"/>" style="width:500px; height:auto;">
         </a>
         <br>
-        <p><%=photo.getDescription()%></p>
+        <p><c:out value="${photo.description}"/></p>
     </body>
 </html>

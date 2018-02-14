@@ -4,9 +4,8 @@
     Author     : Isaac
 --%>
 
-<%@page import="java.util.List"%>
-<%@page import="model.Photo"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -48,19 +47,14 @@
 
         <!--PHOTO LIST-->
         <table>
-            <%
-                List<Photo> photoList = (List<Photo>)request.getAttribute("photoList");
-                for (Photo p : photoList){
-            %>
-            <div class="galleryItem">
-                <a target="_blank" href="?id=<%=p.getId()%>">
-                    <img src="images/<%=p.getFile()%>" alt="<%=p.getName()%>" width="700" height="auto">
-                </a>
-                <div class="desc"><%=p.getName()%></div>
-            </div>
-            <%
-                }
-            %>
+            <c:forEach var="photo" items="${photoList}">
+                <div class="galleryItem">
+                    <a target="_blank" href="?id=<c:out value="${photo.id}"/>">
+                        <img src="images/<c:out value="${photo.file}"/>" alt="<c:out value="${photo.name}"/>" width="700" height="auto">
+                    </a>
+                        <div class="desc"><c:out value="${photo.name}"/></div>
+                </div>
+            </c:forEach>
         </table>
     </body>
 </html>
