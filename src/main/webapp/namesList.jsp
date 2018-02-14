@@ -1,0 +1,31 @@
+<%-- 
+    Document   : namesList
+    Created on : Feb 13, 2018, 6:41:04 PM
+    Author     : Isaac
+--%>
+
+<%@page import="java.util.List"%>
+<%@page import="edu.wctc.dj.week4.model.Name"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>JSP Page</title>
+    </head>
+    <body>
+        <table>
+            <%
+                List<Name> nameList = (List<Name>)request.getAttribute("nameList");
+                for (Name name : nameList){
+            %>
+            <tr>
+                <td><%=name.getFirst()%></td>
+                <td><a href="?id=<%=name.getId()%>"><%=name.getLast()%></a></td>
+            </tr>
+            <%
+                }
+            %>
+        </table>
+    </body>
+</html>
