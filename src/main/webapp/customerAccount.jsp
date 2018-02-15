@@ -1,6 +1,6 @@
 <%-- 
-    Document   : gallery
-    Created on : Feb 12, 2018, 6:25:16 PM
+    Document   : customerAccount
+    Created on : Feb 15, 2018, 8:16:33 AM
     Author     : Isaac
 --%>
 
@@ -45,14 +45,7 @@
 		<a class="nav" href="viewCart.jsp" style="padding-left:20px; padding-right:20px;"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Cart</a></td>
 	</div>
 
-        <!--PHOTO LIST-->
-        <table>
-            <div class="galleryItem">
-                <a target="_blank" href="/PicsApp/PhotoController?id=<c:out value="${photo.id}"/>">
-                    <img src="images/<c:out value="${photo.file}"/>" alt="<c:out value="${photo.name}"/>" width="700" height="auto">
-                </a>
-                <div class="desc"><c:out value="${photo.name}"/></div>
-            </div>
-        </table>
+        <!--CUSTOMER ACCOUNT INFO-->
+        
     </body>
 </html>
