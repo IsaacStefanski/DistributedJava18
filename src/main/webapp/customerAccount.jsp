@@ -46,6 +46,9 @@
 	</div>
 
         <!--CUSTOMER ACCOUNT INFO-->
-        
+        <p>FIRST NAME: <c:out value="${customer.firstName}"/></p>
+        <p>LAST NAME: <c:out value="${customer.lastName}"/></p>
+        <p>EMAIL: <c:out value="${customer.email}"/></p>
+        <p>ADDRESS: <c:out value="${customer.streetAddress}"/> <c:out value="${customer.city}"/>, <c:out value="${customer.state}"/> <c:out value="${customer.zip}"/></p>
     </body>
 </html>
