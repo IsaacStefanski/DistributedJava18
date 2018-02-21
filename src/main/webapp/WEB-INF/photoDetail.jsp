@@ -47,12 +47,16 @@
 	</div>
 
         <!--PHOTO DETAILS-->
-        <h1><c:out value="${photo.name}"/></h1>        
+        <h1><c:out value="${photo.name}"/></h1>
         <a href="images/<c:out value="${photo.file}"/>">
             <img src="images/<c:out value="${photo.file}"/>" style="width:500px; height:auto;">
         </a>
         <br>
         <p><c:out value="${photo.description}"/></p>
-        <p><c:out value="${photo.price}"/></p>
+        <p>Price:</p>
+        <p>
+            <fmt:setLocale value="en_US"/>
+            <fmt:formatNumber value="${photo.price}" type="currency"/>
+        </p>
     </body>
 </html>

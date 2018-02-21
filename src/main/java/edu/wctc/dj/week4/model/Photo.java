@@ -36,7 +36,7 @@ public class Photo {
     }
 
     public String getDescription() {
-        return description;
+        return description + " " + ""+getPrice();
     }
 
     public void setDescription(String description) {
