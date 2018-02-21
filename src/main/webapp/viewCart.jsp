@@ -48,7 +48,7 @@
         <h1>Cart</h1>
         <br>
         <c:forEach var="line" items="${lineItems}">
-            <c:out value="${lineItem}"/>
+            <p><c:out value="${lineItem}"/></p>
         </c:forEach>
     </body>
 </html>

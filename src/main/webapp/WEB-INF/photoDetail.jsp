@@ -52,11 +52,11 @@
             <img src="images/<c:out value="${photo.file}"/>" style="width:500px; height:auto;">
         </a>
         <br>
-        <p><c:out value="${photo.description}"/></p>
         <p>Price:</p>
         <p>
             <fmt:setLocale value="en_US"/>
             <fmt:formatNumber value="${photo.price}" type="currency"/>
         </p>
+        <p><c:out value="${photo.description}"/></p>
     </body>
 </html>
