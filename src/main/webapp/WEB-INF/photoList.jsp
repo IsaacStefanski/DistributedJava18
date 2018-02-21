@@ -41,20 +41,18 @@
 	<!--NAVIGATION-->
 	<div id="navigation">
 		<a class="nav" href="index.jsp" style="padding-left:20px; padding-right:20px;"><i class="fa fa-home" aria-hidden="true"></i> Home</a></td>
-		<a class="nav" href="gallery.jsp" style="padding-left:20px; padding-right:20px;"><i class="fa fa-camera" aria-hidden="true"></i> Photos</a></td>
+		<a class="nav" href="/PicsApp/PhotoController?search=" style="padding-left:20px; padding-right:20px;"><i class="fa fa-camera" aria-hidden="true"></i> Photos</a></td>
 		<a class="nav" href="viewCart.jsp" style="padding-left:20px; padding-right:20px;"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Cart</a></td>
 	</div>
 
         <!--PHOTO LIST-->
-        <table>
-            <c:forEach var="photo" items="${photoList}">
-                <div class="galleryItem">
-                    <a target="_blank" href="?id=<c:out value="${photo.id}"/>">
-                        <img src="images/<c:out value="${photo.file}"/>" alt="<c:out value="${photo.name}"/>" width="700" height="auto">
-                    </a>
-                        <div class="desc"><c:out value="${photo.name}"/></div>
-                </div>
-            </c:forEach>
-        </table>
+        <c:forEach var="photo" items="${photoList}">
+            <div class="galleryItem">
+                <a target="_blank" href="?id=<c:out value="${photo.id}"/>">
+                    <img src="images/<c:out value="${photo.file}"/>" alt="<c:out value="${photo.name}"/>" width="700" height="auto">
+                </a>
+                    <div class="desc"><c:out value="${photo.name}"/></div>
+            </div>
+        </c:forEach>
     </body>
 </html>
