@@ -4,9 +4,17 @@
         <servlet-name>PhotoController</servlet-name>
         <servlet-class>edu.wctc.dj.week4.controller.PhotoController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CartController</servlet-name>
+        <servlet-class>edu.wctc.dj.week4.controller.CartController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>PhotoController</servlet-name>
         <url-pattern>/PhotoController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CartController</servlet-name>
+        <url-pattern>/CartController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

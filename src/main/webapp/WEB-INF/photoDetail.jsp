@@ -6,6 +6,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -52,5 +53,9 @@
         </a>
         <br>
         <p><c:out value="${photo.description}"/></p>
+        <p>
+            <fmt:setLocale value = "en_US"/>
+            <fmt:formatNumber value = "${photo.price}" type = "currency"/>
+        </p>
     </body>
 </html>

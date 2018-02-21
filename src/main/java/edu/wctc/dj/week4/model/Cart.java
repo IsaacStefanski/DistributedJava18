@@ -7,19 +7,19 @@ import java.util.ArrayList;
  * @author Isaac
  */
 public class Cart {
-    private ArrayList<Photo> itemsInCart;
+    private ArrayList<LineItem> itemsInCart;
     private double cartTotal;
 
-    public Cart(ArrayList<Photo> itemsInCart, double cartTotal) {
+    public Cart(ArrayList<LineItem> itemsInCart, double cartTotal) {
         this.itemsInCart = itemsInCart;
         this.cartTotal = cartTotal;
     }
 
-    public ArrayList<Photo> getItemsInCart() {
+    public ArrayList<LineItem> getItemsInCart() {
         return itemsInCart;
     }
 
-    public void setItemsInCart(ArrayList<Photo> itemsInCart) {
+    public void setItemsInCart(ArrayList<LineItem> itemsInCart) {
         this.itemsInCart = itemsInCart;
     }
 

@@ -9,12 +9,14 @@ public class Photo {
     private String name;
     private String description;
     private String file;
+    private double price;
 
-    public Photo(String id, String name, String description, String file) {
+    public Photo(String id, String name, String description, String file, double price) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.file = file;
+        this.price = price;
     }
     
     public String getId() {
@@ -47,5 +49,13 @@ public class Photo {
 
     public void setFile(String file) {
         this.file = file;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
     }
 }

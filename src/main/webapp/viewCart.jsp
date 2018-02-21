@@ -45,5 +45,14 @@
 	</div>
         
         <h1>Cart</h1>
+        <br>
+        <c:forEach var="photo" items="${photoList}">
+                <div class="galleryItem">
+                    <a target="_blank" href="?id=<c:out value="${photo.id}"/>">
+                        <img src="images/<c:out value="${photo.file}"/>" alt="<c:out value="${photo.name}"/>" width="700" height="auto">
+                    </a>
+                        <div class="desc"><c:out value="${photo.name}"/></div>
+                </div>
+        </c:forEach>
     </body>
 </html>
