@@ -8,14 +8,20 @@ import java.util.Locale;
  * @author Isaac
  */
 public class LineItem {
+    private static int lineNum;
     private Photo photo;
     private int qty;
     private double itemSubtotal;
     
     public LineItem(Photo photo, int qty){
+        lineNum++;
         setPhoto(photo);
         setQty(qty);
         itemSubtotal = findItemSubtotal();
+    }
+    
+    public final int getLineNum(){
+        return lineNum;
     }
     
     public final double findItemSubtotal(){

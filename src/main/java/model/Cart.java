@@ -1,6 +1,6 @@
 package model;
 
-import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -8,9 +8,9 @@ import java.util.ArrayList;
  */
 public class Cart {
     private String ID;
-    private ArrayList<LineItem> itemsInCart;
+    private List<LineItem> itemsInCart;
 
-    public Cart(String ID, ArrayList<LineItem> itemsInCart) {
+    public Cart(String ID, List<LineItem> itemsInCart) {
         this.ID = ID;
         this.itemsInCart = itemsInCart;
     }
@@ -23,11 +23,11 @@ public class Cart {
         this.ID = ID;
     }
 
-    public ArrayList<LineItem> getItemsInCart() {
+    public List<LineItem> getItemsInCart() {
         return itemsInCart;
     }
 
-    public void setItemsInCart(ArrayList<LineItem> itemsInCart) {
+    public void setItemsInCart(List<LineItem> itemsInCart) {
         this.itemsInCart = itemsInCart;
     }
 }

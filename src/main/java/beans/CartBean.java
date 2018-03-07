@@ -9,12 +9,13 @@ import java.io.IOException;
 import java.io.Serializable;
 import java.util.List;
 import javax.inject.Named;
-import javax.enterprise.context.Dependent;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.faces.event.AjaxBehaviorEvent;
 import model.Cart;
+import model.CartService;
+import model.LineItem;
 
 /**
  *
@@ -23,10 +24,16 @@ import model.Cart;
 @Named(value = "cartBean")
 @SessionScoped
 public class CartBean implements Serializable {
-
+    private final CartService cartService = new CartService();
     private Cart cart;
+    private List<LineItem> itemList;
     
     public CartBean() {
+    }
+    
+    public String allLineItems() {
+        itemList = cartService.getCart().getItemsInCart();
+        return "itemList";
     }
     
     public void cartDetail(AjaxBehaviorEvent event) {
@@ -44,5 +51,9 @@ public class CartBean implements Serializable {
 
     public void setCart(Cart cart) {
         this.cart = cart;
+    }
+    
+    public List<LineItem> getLineItems() {
+        return itemList;
     }
 }
