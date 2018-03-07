@@ -1,36 +1,28 @@
 package model;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.List;
 
 /**
  *
  * @author Isaac
  */
 public class CartService {
-    private Cart cart = new Cart(
-            "C1",
-            new ArrayList<LineItem>(
-                    (Collection<? extends LineItem>) new LineItem(
-                            new Photo(
-                                    "23",
-                                    "Yellow Lamborghini Aventador",
-                                    "Yellow Lamborghini Aventador at 2017 Chicago Auto Show",
-                                    "autoshows/yellow-aventador.jpg",
-                                    3.25
-                            ),
-                        1
-                    )
-            )
-    );
+    //Use "fake" hard-coded data for now to simulate the functionality of the cart
+    private LineItem item = new LineItem(new Photo("23", "Yellow Lamborghini Aventador", "Yellow Lamborghini Aventador at 2017 Chicago Auto Show",
+                            "autoshows/yellow-aventador.jpg", 3.25), 2);
+    private ArrayList<LineItem> items = new ArrayList<>();
 
-    public Cart getCart() {
+    public Cart createCart(){
+        items.add(item);
+        Cart cart = new Cart("C1", items);
         return cart;
     }
-
-    public void setCart(Cart cart) {
-        this.cart = cart;
+    
+    public Cart getCart() {
+        return createCart();
     }
+//
+//    public void setCart(Cart cart) {
+//        this.cart = cart;
+//    }
 }

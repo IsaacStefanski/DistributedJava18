@@ -9,10 +9,10 @@ import java.util.Locale;
  */
 public class LineItem {
     private Photo photo;
-    private double qty;
+    private int qty;
     private double itemSubtotal;
     
-    public LineItem(Photo photo, double qty){
+    public LineItem(Photo photo, int qty){
         setPhoto(photo);
         setQty(qty);
         itemSubtotal = findItemSubtotal();
@@ -30,11 +30,11 @@ public class LineItem {
         this.photo = photo;
     }
 
-    public final double getQty() {
+    public final int getQty() {
         return qty;
     }
 
-    public final void setQty(double qty)throws IllegalArgumentException {
+    public final void setQty(int qty)throws IllegalArgumentException {
         if(qty >= 0.0){
             this.qty = qty;
         } else {
