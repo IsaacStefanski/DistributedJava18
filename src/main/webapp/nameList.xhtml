@@ -9,15 +9,28 @@
     </h:head>
     <h:body>
         <h:form>
+            <!--QUANTITY IN CART-->
+            <p:outputLabel for="cartQuantity" value="Cart:" />
+            <h:outputText id="cartQuantity" value="#{cartBean.itemsInCart}" />
+            
+            <!--LIST OF NAMES-->
             <p:dataTable value="#{nameBean.nameList}" var="name"
                          rowKey="#{name.id}" selection="#{nameBean.name}"
                          selectionMode="single">
                 <f:ajax event="rowSelect" listener="#{nameBean.nameDetail}" />
+                <!--COLUMN: FIRST NAME-->
                 <p:column>
                     <h:outputText value="#{name.first}" />
                 </p:column>
+                <!--COLUMN: LAST NAME-->
                 <p:column>
                     <h:outputText value="#{name.last}" />
+                </p:column>
+                <!--COLUMN: ADD TO CART BUTTON-->
+                <p:column>
+                    <p:commandButton value="Add"
+                                     update=":form:cartQuantity"
+				     actionListener="#{cartBean.addToCart(name)}" />
                 </p:column>
             </p:dataTable>
         </h:form>
