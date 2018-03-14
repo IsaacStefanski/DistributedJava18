@@ -1,33 +1,33 @@
 package model;
 
+import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
  *
  * @author Isaac
  */
-public class Cart {
-    private String ID;
-    private List<LineItem> itemsInCart;
-
-    public Cart(String ID, List<LineItem> itemsInCart) {
-        this.ID = ID;
-        this.itemsInCart = itemsInCart;
+public class Cart implements Serializable {
+    private final List<Photo> contents = new ArrayList<>();
+    
+    public List<Photo> getContents(){
+        return contents;
     }
-
-    public String getID() {
-        return ID;
+    
+    public int getItemsInCart(){
+        return contents.size();
     }
-
-    public void setID(String ID) {
-        this.ID = ID;
+    
+    public void add(Photo photo){
+        contents.add(photo);
     }
-
-    public List<LineItem> getItemsInCart() {
-        return itemsInCart;
+    
+    public void remove(Photo photo){
+        contents.remove(photo);
     }
-
-    public void setItemsInCart(List<LineItem> itemsInCart) {
-        this.itemsInCart = itemsInCart;
+    
+    public void removeAll(){
+        contents.clear();
     }
 }

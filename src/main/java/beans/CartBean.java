@@ -16,6 +16,7 @@ import javax.faces.event.AjaxBehaviorEvent;
 import model.Cart;
 import model.CartService;
 import model.LineItem;
+import model.Photo;
 
 /**
  *
@@ -24,36 +25,22 @@ import model.LineItem;
 @Named(value = "cartBean")
 @SessionScoped
 public class CartBean implements Serializable {
+    private final String sessionId;
+    private final Cart cart;
     private final CartService cartService = new CartService();
-    private Cart cart;
-    private List<LineItem> itemList;
     
     public CartBean() {
-    }
-    
-    public String allLineItems() {
-        itemList = cartService.getCart().getItemsInCart();
-        return "itemList";
-    }
-    
-    public void cartDetail(AjaxBehaviorEvent event) {
-        try{
-            FacesContext.getCurrentInstance().getExternalContext().redirect("cartDetail.xhtml?id=" + cart.getID());
-        } catch(IOException ex) {
-            FacesMessage msg = new FacesMessage("IOException", cart.getID());
-            FacesContext.getCurrentInstance().addMessage(null, msg);
-        }
-    }
+        FacesContext facesContext = FacesContext.getCurrentInstance();
+        sessionId = facesContext.getExternalContext().getSessionId(true);
+        cart = cartService.getContents(sessionId);
+    }    
 
-    public Cart getCart() {
-        return cart;
-    }
-
-    public void setCart(Cart cart) {
-        this.cart = cart;
+    public int getItemsInCart(){
+        return cart.getItemsInCart();
     }
     
-    public List<LineItem> getLineItems() {
-        return itemList;
+    public void addToCart(Photo photo){
+        cart.add(photo);
+        cartService.update(sessionId, cart);
     }
 }

@@ -42,22 +42,37 @@
         </div>
 
         <!--PHOTO LIST-->
-        <h:form>
+        <h:form id="form">
+            <!--QUANTITY IN CART-->
+            <p:outputLabel for="cartQuantity" value="Cart:" />
+            <h:outputText id="cartQuantity" value="#{cartBean.itemsInCart}" />
+            
+            <!--LIST OF PHOTOS-->
             <p:dataTable value="#{photoBean.photoList}" var="photo"
                          rowKey="#{photo.id}" selection="#{photoBean.photo}"
                          selectionMode="single">
                 <f:ajax event="rowSelect" listener="#{photoBean.photoDetail}" />
+                <!--COLUMN: PHOTO PREVIEW-->
                 <p:column headerText="Photo">
                     <h:graphicImage value="images/#{photo.file}" width="350px" />
                 </p:column>
+                <!--COLUMN: PHOTO NAME-->
                 <p:column headerText="Name">
                     <h:outputText value="#{photo.name}" />
                 </p:column>
+                <!--COLUMN: PHOTO DESCRIPTION-->
                 <p:column headerText="Description">
                     <h:outputText value="#{photo.description}" />
                 </p:column>
+                <!--COLUMN: PHOTO PRICE-->
                 <p:column headerText="Price">
                     <h:outputText value="#{photo.price}" />
+                </p:column>
+                <!--COLUMN: ADD TO CART BUTTON-->
+                <p:column>
+                    <p:commandButton value="Add"
+                                     update=":form:cartQuantity"
+				     actionListener="#{cartBean.addToCart(name)}" />
                 </p:column>
             </p:dataTable>
         </h:form>

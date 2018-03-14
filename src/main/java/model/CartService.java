@@ -1,29 +1,27 @@
 package model;
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  *
  * @author Isaac
  */
 public class CartService {
-    //Use "fake" hard-coded data for now to simulate the functionality of the cart
-    private List<LineItem> itemList = Arrays.asList(
-            new LineItem(
-                    new Photo(
-                            "23", "Yellow Lamborghini Aventador", "Yellow Lamborghini Aventador at 2017 Chicago Auto Show",
-                            "autoshows/yellow-aventador.jpg", 3.25
-                    ),
-                2)
-    );    
-    private Cart cart = new Cart("C1", itemList);
+    private static final Map<String, Cart> contents = new HashMap<>();
     
-    public Cart getCart() {
+    public Cart getContents(String sessionId){
+        Cart cart = contents.computeIfAbsent(sessionId, (String s) -> new Cart());
         return cart;
     }
-
-    public void setCart(Cart cart) {
-        this.cart = cart;
+    
+    public void update(String sessionId, Cart cart){
+        contents.put(sessionId, cart);
+    }
+    
+    public void delete(String sessionId){
+        contents.remove(sessionId);
     }
 }
