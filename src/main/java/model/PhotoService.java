@@ -1,5 +1,7 @@
 package model;
 
+import data.ImageDAO;
+import data.PhotoDAO;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -9,8 +11,46 @@ import java.util.List;
  * @author Isaac
  */
 public class PhotoService {
+    public Photo getPhoto(String id){
+        return null;
+    }
     
-    private List<Photo> photoList = Arrays.asList(
+    public List<Photo> getAllPhotos() throws Exception{
+        PhotoDAO photoDAO = new PhotoDAO();
+        List<Photo> photoList = photoDAO.getPhotos();
+        
+        if(photoList != null){
+            ImageDAO imageDAO = new ImageDAO();
+            for(Photo p : photoList){
+                p.setImage(imageDAO.getImage(p));
+            }
+        }
+        return photoList;
+    }
+    
+    public List<Photo> findPhotos(String search){
+        return null;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/***
+private List<Photo> photoList = Arrays.asList(
         new Photo("1", "Fiat Abarth Emblem",
                 "The Abarth emblem on a Fiat 124 Spyder Abarth at the 2017 Chicago Auto Show", "autoshows/abarth-emblem.jpg", 2.00),
         
@@ -145,4 +185,4 @@ public class PhotoService {
         }
         return list;
     }
-}
+***/

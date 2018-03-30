@@ -1,7 +1,7 @@
 package data;
 
-import model.Address;
-import model.Name;
+import model.Photo;
+import model.Image;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -10,30 +10,27 @@ import java.sql.ResultSet;
  *
  * @author Isaac
  */
-public class AddressDAO {
-    public Address getAddress(Name name) throws Exception {
+public class ImageDAO {
+    public Image getImage(Photo photo) throws Exception {
         Connection conn = null;
         PreparedStatement stmt = null;
         ResultSet rs = null;
         
         try{
             conn = ConnectionUtil.getConnection();
-            stmt = conn.prepareStatement("select * from address where nameid = ?");
-            stmt.setString(1, name.getId());
+            stmt = conn.prepareStatement("select * from image where id = ?");
+            stmt.setString(1, photo.getId());
             rs = stmt.executeQuery();
             
-            Address address = null;
+            Image image = null;
             
             if(rs.next()){
                 String id = rs.getString("id");
-                String street = rs.getString("street");
-                String city = rs.getString("city");
-                String state = rs.getString("state");
-                String zip = rs.getString("zip");
+                String file = rs.getString("imgfile");
                 
-                address = new Address(street, city, state, zip);
+                image = new Image(id, file);
             }
-            return address;
+            return image;
         } finally {
             if(rs != null) rs.close();
             if(stmt != null) stmt.close();

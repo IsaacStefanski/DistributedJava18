@@ -13,7 +13,7 @@ public class ConnectionUtil {
     public static Connection getConnection() throws Exception {
         Context initContext = new InitialContext();
         Context webContext = (Context) initContext.lookup("java:comp/env");
-        DataSource ds = (DataSource) webContext.lookup("jdbc/myNames");
+        DataSource ds = (DataSource) webContext.lookup("jdbc/myPhotos");
         return ds.getConnection();
     }
 }

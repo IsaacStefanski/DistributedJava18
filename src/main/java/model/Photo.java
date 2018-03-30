@@ -8,14 +8,14 @@ public class Photo {
     private String id;
     private String name;
     private String description;
-    private String file;
+    private Image image;
     private double price;
 
-    public Photo(String id, String name, String description, String file, double price) {
+    public Photo(String id, String name, String description, Image image, double price) {
         this.id = id;
         this.name = name;
         this.description = description;
-        this.file = file;
+        this.image = image;
         this.price = price;
     }
     
@@ -43,12 +43,12 @@ public class Photo {
         this.description = description;
     }
 
-    public String getFile() {
-        return file;
+    public Image getImage() {
+        return image;
     }
 
-    public void setFile(String file) {
-        this.file = file;
+    public void setImage(Image image) {
+        this.image = image;
     }
 
     public double getPrice() {

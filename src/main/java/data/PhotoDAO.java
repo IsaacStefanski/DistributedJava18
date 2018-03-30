@@ -1,11 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package data;
 
-import model.Name;
+import model.Photo;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -16,28 +11,30 @@ import java.util.List;
  *
  * @author Isaac
  */
-public class NameDAO {
-    public List<Name> getNames() throws Exception {
+public class PhotoDAO {
+    public List<Photo> getPhotos() throws Exception {
         Connection conn = null;
         PreparedStatement stmt = null;
         ResultSet rs = null;
         
         try{
             conn = ConnectionUtil.getConnection();
-            stmt = conn.prepareStatement("select * from name");
+            stmt = conn.prepareStatement("select * from photo");
             rs = stmt.executeQuery();
             
-            List<Name> nameList = new ArrayList<>();
+            List<Photo> photoList = new ArrayList<>();
             while(rs.next()){
                 String id = rs.getString("id");
-                String firstName = rs.getString("firstname");
-                String lastName = rs.getString("lastname");
+                String photoName = rs.getString("photoname");
+                String description = rs.getString("description");
+                String file = rs.getString("imgid");
+                double price = rs.getDouble("price");
                 
-                Name name = new Name(id, firstName, lastName, null);
+                Photo photo = new Photo(id, photoName, description, null, price);
                 
-                nameList.add(name);
+                photoList.add(photo);
             }
-            return nameList;
+            return photoList;
         } finally {
             if(rs != null) rs.close();
             if(stmt != null) stmt.close();
