@@ -1,4 +1,4 @@
-package edu.wctc.dj.week10.services;
+package edu.wctc.dj.week10.service;
 
 import edu.wctc.dj.week10.data.dao.INameDAO;
 import edu.wctc.dj.week10.model.Name;

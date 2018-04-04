@@ -1,7 +1,7 @@
 package edu.wctc.dj.week10.beans;
 
 import edu.wctc.dj.week10.model.Name;
-import edu.wctc.dj.week10.services.NameService;
+import edu.wctc.dj.week10.service.NameService;
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.List;
@@ -15,7 +15,9 @@ import org.springframework.stereotype.Component;
 @Component("nameBean")
 @Scope("session")
 public class NameBean implements Serializable {
-    private final NameService nameService;
+    @Autowired
+    private NameService nameService;
+    
     private String search;
     private Name name;
     private List<Name> nameList;
@@ -48,8 +50,7 @@ public class NameBean implements Serializable {
 
     public void nameDetail(AjaxBehaviorEvent event) {
         try {
-            FacesContext.getCurrentInstance().getExternalContext()
-                        .redirect("nameDetail.xhtml?id=" + name.getId());
+            FacesContext.getCurrentInstance().getExternalContext().redirect("nameDetail.xhtml?id=" + name.getId());
         } catch (IOException ex) {
             FacesMessage msg = new FacesMessage("IOException", name.getId());
             FacesContext.getCurrentInstance().addMessage(null, msg);
