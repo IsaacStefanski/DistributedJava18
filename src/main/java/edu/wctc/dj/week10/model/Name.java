@@ -1,51 +1,67 @@
 package edu.wctc.dj.week10.model;
 
-/**
- *
- * @author Isaac
- */
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+
+@Entity
 public class Name {
-    private String id;
-    private String first;
-    private String last;
-    private Address address;
+	@Id
+	@GeneratedValue
+	private String id;
 
-    public Name(String id, String first, String last, Address address) {
-        this.id = id;
-        this.first = first;
-        this.last = last;
-        this.address = address;
-    }
-    
-    public String getId() {
-        return id;
-    }
+	@Column(name = "firstname")
+	private String first;
 
-    public void setId(String id) {
-        this.id = id;
-    }
+	@Column(name = "lastname")
+	private String last;
 
-    public String getFirst() {
-        return first;
-    }
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "addrid")
+	private Address address;
 
-    public void setFirst(String first) {
-        this.first = first;
-    }
+	public Name() {
 
-    public String getLast() {
-        return last;
-    }
+	}
 
-    public void setLast(String last) {
-        this.last = last;
-    }
+	public Name(String first, String last) {
+		this.first = first;
+		this.last = last;
+	}
 
-    public Address getAddress() {
-        return address;
-    }
+	public String getId() {
+		return id;
+	}
 
-    public void setAddress(Address address) {
-        this.address = address;
-    }
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public String getFirst() {
+		return first;
+	}
+
+	public void setFirst(String first) {
+		this.first = first;
+	}
+
+	public String getLast() {
+		return last;
+	}
+
+	public void setLast(String last) {
+		this.last = last;
+	}
+
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
+	}
 }

@@ -1,51 +1,65 @@
 package edu.wctc.dj.week10.model;
 
-/**
- *
- * @author Isaac
- */
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
 public class Address {
-    private String street;
-    private String city;
-    private String state;
-    private String zip;
+	@Id
+	@GeneratedValue
+	private String id;
 
-    public Address(String street, String city, String state, String zip) {
-        this.street = street;
-        this.city = city;
-        this.state = state;
-        this.zip = zip;
-    }
+	private String street;
+	private String city;
+	private String state;
+	private String zip;
 
-    public String getStreet() {
-        return street;
-    }
+	public Address() {
 
-    public void setStreet(String street) {
-        this.street = street;
-    }
+	}
 
-    public String getCity() {
-        return city;
-    }
+	public Address(String street, String city, String state, String zip) {
+		this.street = street;
+		this.city = city;
+		this.state = state;
+		this.zip = zip;
+	}
 
-    public void setCity(String city) {
-        this.city = city;
-    }
+	public String getId() {
+		return id;
+	}
 
-    public String getState() {
-        return state;
-    }
+	public String getStreet() {
+		return street;
+	}
 
-    public void setState(String state) {
-        this.state = state;
-    }
+	public void setStreet(String street) {
+		this.street = street;
 
-    public String getZip() {
-        return zip;
-    }
+	}
 
-    public void setZip(String zip) {
-        this.zip = zip;
-    }
+	public String getCity() {
+		return city;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
+	}
+
+	public String getState() {
+		return state;
+	}
+
+	public void setState(String state) {
+		this.state = state;
+	}
+
+	public String getZip() {
+		return zip;
+	}
+
+	public void setZip(String zip) {
+		this.zip = zip;
+	}
 }
