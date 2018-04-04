@@ -3,55 +3,61 @@ package edu.wctc.dj.week10.beans;
 import edu.wctc.dj.week10.model.Name;
 import edu.wctc.dj.week10.model.NameService;
 import java.io.IOException;
-import javax.inject.Named;
-import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
 import java.util.List;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.faces.event.AjaxBehaviorEvent;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
 
-/**
- *
- * @author Isaac
- */
-@Named(value = "nameBean")
-@SessionScoped
+@Component("nameBean")
+@Scope("session")
 public class NameBean implements Serializable {
-    private final NameService nameService = new NameService();
-    private Name name;
-    private List<Name> nameList;
-    
-    public NameBean() {
-    }
-    
-    public String allNames() throws Exception {
-        nameList = nameService.getAllNames();
-        return "nameList";
-    }
-    
-    public void nameDetail(AjaxBehaviorEvent event) {
-        try{
-            FacesContext.getCurrentInstance().getExternalContext().redirect("nameDetail.xhtml?id=" + name.getId());
-        } catch(IOException ex) {
-            FacesMessage msg = new FacesMessage("IOException", name.getId());
-            FacesContext.getCurrentInstance().addMessage(null, msg);
-        }
-    }
+	private final NameService nameService;
+	private String search;
+	private Name name;
+	private List<Name> nameList;
 
-    public Name getName() {
-        return name;
-    }
+	@Autowired
+	public NameBean(NameService nameService) {
+		this.nameService = nameService;
+	}
 
-    public void setName(Name name) {
-        this.name = name;
-    }
+	public void setSearch(String search) {
+		this.search = search;
+	}
 
-    public List<Name> getNameList() {
-        return nameList;
-    }
+	public Name getName() {
+		return name;
+	}
 
-    public void setNameList(List<Name> nameList) {
-        this.nameList = nameList;
-    }
+	public void setName(Name name) {
+		this.name = name;
+	}
+
+	public List<Name> getNameList() {
+		return nameList;
+	}
+
+	public String searchNames() {
+		nameList = nameService.findNames(search);
+		return "nameList";
+	}
+
+	public void nameDetail(AjaxBehaviorEvent event) {
+		try {
+                    FacesContext.getCurrentInstance().getExternalContext()
+				.redirect("nameDetail.xhtml?id=" + name.getId());
+		} catch (IOException ex) {
+                    FacesMessage msg = new FacesMessage("IOException", name.getId());
+                    FacesContext.getCurrentInstance().addMessage(null, msg);
+		}
+	}
+
+	public String allNames() throws Exception {
+		nameList = nameService.getAllNames();
+		return "nameList";
+	}
 }

@@ -18,4 +18,10 @@ Any value defined here will override the pom.xml file value but is only applicab
         <org-netbeans-modules-projectapi.jsf_2e_language>Facelets</org-netbeans-modules-projectapi.jsf_2e_language>
         <org-netbeans-modules-whitelist.whitelist-oracle>false</org-netbeans-modules-whitelist.whitelist-oracle>
     </properties>
+    <spring-data xmlns="http://www.netbeans.org/ns/spring-data/1">
+        <config-files>
+            <config-file>src/main/webapp/WEB-INF/spring/application-context.xml</config-file>
+        </config-files>
+        <config-file-groups/>
+    </spring-data>
 </project-shared-configuration>
