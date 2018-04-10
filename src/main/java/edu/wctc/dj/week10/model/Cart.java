@@ -15,7 +15,7 @@ public class Cart implements Serializable {
         return contents;
     }
     
-    public int getItemsInCart(){
+    public int getNumberOfItemsInCart(){
         return contents.size();
     }
     

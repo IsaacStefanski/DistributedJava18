@@ -26,7 +26,7 @@ public class CartBean implements Serializable {
     }    
 
     public int getItemsInCart(){
-        return cart.getItemsInCart();
+        return cart.getNumberOfItemsInCart();
     }
     
     public void addToCart(Photo photo){
