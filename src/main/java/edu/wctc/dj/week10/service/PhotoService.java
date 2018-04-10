@@ -31,7 +31,7 @@ public class PhotoService {
     public List<Photo> findPhotos(String search){
         ExampleMatcher matcher = ExampleMatcher.matching().withMatcher("name", startsWith().ignoreCase());
         Photo photo = new Photo();
-        photo.setName(search);
+        photo.setPhotoName(search);
         return photoDAO.findAll(Example.of(photo, matcher));
     }
 }

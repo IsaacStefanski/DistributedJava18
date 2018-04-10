@@ -10,19 +10,20 @@ import javax.persistence.Id;
  */
 @Entity
 public class Image {
+    
     @Id
     @GeneratedValue
     private String id;
     
-    private String file;
+    private String imgFile;
 
     public Image() {
 
     }
     
-    public Image(String id, String file) {
+    public Image(String id, String imgFile) {
         this.id = id;
-        this.file = file;
+        this.imgFile = imgFile;
     }
 
     public String getId() {
@@ -33,11 +34,11 @@ public class Image {
         this.id = id;
     }
 
-    public String getFile() {
-        return file;
+    public String getImgFile() {
+        return imgFile;
     }
 
-    public void setFile(String file) {
-        this.file = file;
+    public void setImgFile(String file) {
+        this.imgFile = file;
     }
 }

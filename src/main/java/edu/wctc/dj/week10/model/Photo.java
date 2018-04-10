@@ -19,7 +19,7 @@ public class Photo {
     private String id;
     
     @Column(name = "photoname")
-    private String name;
+    private String photoname;
     
     @Column(name = "description")
     private String description;
@@ -37,7 +37,7 @@ public class Photo {
     
     public Photo(String id, String name, String description, Image image, double price) {
         this.id = id;
-        this.name = name;
+        this.photoname = name;
         this.description = description;
         this.image = image;
         this.price = price;
@@ -51,12 +51,12 @@ public class Photo {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getPhotoName() {
+        return photoname;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setPhotoName(String name) {
+        this.photoname = name;
     }
 
     public String getDescription() {
