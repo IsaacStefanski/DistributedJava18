@@ -23,9 +23,9 @@ public class CartBean implements Serializable {
         FacesContext facesContext = FacesContext.getCurrentInstance();
         sessionId = facesContext.getExternalContext().getSessionId(true);
         cart = cartService.getContents(sessionId);
-    }    
+    }
 
-    public int getItemsInCart(){
+    public int getNumberOfItemsInCart(){
         return cart.getNumberOfItemsInCart();
     }
     
