@@ -49,7 +49,7 @@
         <h:form>
             <p:dataTable value="#{cartBean.lineItems}" var="item">
                 <p:column headerText="Photo">
-                    <h:outputText value="#{item.photo.name}" />
+                    <h:outputText value="#{item.photo.photoName}" />
                 </p:column>
                 <p:column headerText="Description">
                     <h:outputText value="#{item.photo.description}" />

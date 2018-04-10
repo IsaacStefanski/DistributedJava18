@@ -54,11 +54,11 @@
                 <f:ajax event="rowSelect" listener="#{photoBean.photoDetail}" />
                 <!--COLUMN: PHOTO PREVIEW-->
                 <p:column headerText="Photo">
-                    <h:graphicImage value="images/#{photo.image.file}" width="280px" />
+                    <h:graphicImage value="images/#{photo.image.imgFile}" width="280px" />
                 </p:column>
                 <!--COLUMN: PHOTO NAME-->
                 <p:column headerText="Name">
-                    <h:outputText value="#{photo.name}" />
+                    <h:outputText value="#{photo.photoName}" />
                 </p:column>
                 <!--COLUMN: PHOTO DESCRIPTION-->
                 <p:column headerText="Description">
@@ -72,7 +72,7 @@
                 <p:column>
                     <p:commandButton value="Add"
                                      update=":form:cartQuantity"
-				     actionListener="#{cartBean.addToCart(name)}" />
+				     actionListener="#{cartBean.addToCart(photo)}" />
                 </p:column>
             </p:dataTable>
         </h:form>
