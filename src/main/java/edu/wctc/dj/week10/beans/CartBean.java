@@ -3,8 +3,10 @@ package edu.wctc.dj.week10.beans;
 import java.io.Serializable;
 import javax.faces.context.FacesContext;
 import edu.wctc.dj.week10.model.Cart;
-import edu.wctc.dj.week10.service.CartService;
 import edu.wctc.dj.week10.model.Photo;
+import edu.wctc.dj.week10.service.CartService;
+import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
@@ -15,6 +17,10 @@ import org.springframework.stereotype.Component;
 @Component("cartBean")
 @Scope("session")
 public class CartBean implements Serializable {
+    
+//    @Autowired
+//    private CartService cartService;
+    
     private final String sessionId;
     private final Cart cart;
     private final CartService cartService = new CartService();
@@ -24,6 +30,11 @@ public class CartBean implements Serializable {
         sessionId = facesContext.getExternalContext().getSessionId(true);
         cart = cartService.getContents(sessionId);
     }
+    
+//    public String getListOfItemsInCart() throws Exception {
+//        cartContents = (List)cartService.getContents(sessionId);
+//        return "cartContents";
+//    }
 
     public int getNumberOfItemsInCart(){
         return cart.getNumberOfItemsInCart();
