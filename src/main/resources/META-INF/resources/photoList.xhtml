@@ -1,0 +1,88 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
+        <title>Stefanski Pics | Gallery</title>
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="stefpicsstyle.css"></link>
+        <link href="https://fonts.googleapis.com/css?family=Raleway|Roboto+Slab" rel="stylesheet"></link>
+        <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css"></link>
+    </h:head>
+    <h:body>
+        <!--HEADER-->
+	<header>
+            <table>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td><a href="index.xhtml"><img src="images/logo.png" style="width:auto; height:70px;"></img></a></td>
+                    <td><a href="index.xhtml"><h2>Stefanski Pics Photography</h2></a></td>
+                    <td>&nbsp;</td>
+                    <td>
+                        <!--SEARCH FORM-->
+                        <form method="get" action="PhotoController">
+                            <input type="text" name="search"/>
+                            <input type="submit" value="Search"/>
+                        </form>
+                    </td>
+                </tr>
+            </table>
+	</header>
+	
+	<!--NAVIGATION-->
+        <div id="navigation">
+            <h:link outcome="index.xhtml" value="Home" />
+            <h:outputText value=" | " />
+            <h:link outcome="#{photoBean.allPhotos()}" value="Gallery" />
+            <h:outputText value=" | " />
+            <h:link outcome="cartDetail.xhtml" value="Cart" />
+        </div>
+
+        <!--PHOTO LIST-->
+        <h:form id="form">
+            <!--QUANTITY IN CART-->
+            <p:outputLabel for="cartQuantity" value="Cart:" />
+            <h:outputText id="cartQuantity" value="#{cartBean.numberOfItemsInCart}" />
+            
+            <!--LIST OF PHOTOS-->
+            <p:dataTable value="#{photoBean.photoList}" var="photo"
+                         rowKey="#{photo.id}" selection="#{photoBean.photo}"
+                         selectionMode="single">
+                <f:ajax event="rowSelect" listener="#{photoBean.photoDetail}" />
+                <!--COLUMN: PHOTO PREVIEW-->
+                <p:column headerText="Photo">
+                    <h:graphicImage value="images/#{photo.image.imgFile}" width="280px" />
+                </p:column>
+                <!--COLUMN: PHOTO NAME-->
+                <p:column headerText="Name">
+                    <h:outputText value="#{photo.photoName}" />
+                </p:column>
+                <!--COLUMN: PHOTO DESCRIPTION-->
+                <p:column headerText="Description">
+                    <h:outputText value="#{photo.description}" />
+                </p:column>
+                <!--COLUMN: PHOTO PRICE-->
+                <p:column headerText="Price">
+                    <h:outputText value="#{photo.price}" />
+                </p:column>
+                <!--COLUMN: ADD TO CART BUTTON-->
+                <p:column>
+                    <p:commandButton value="Add"
+                                     update=":form:cartQuantity"
+				     actionListener="#{cartBean.addToCart(photo)}" />
+                </p:column>
+            </p:dataTable>
+        </h:form>
+        
+        <br /><br /><br /><br /><br /><br />
+        
+        <!--FOOTER-->
+	<footer>
+		<p>&copy; 2018  |  Isaac Stefanski  |  Stefanski Pics Photography</p>
+                <img src="images/logo.png" style="width:auto; height:30px;"></img>
+	</footer>
+    </h:body>
+</html>
